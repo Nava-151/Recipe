@@ -15,7 +15,6 @@ export const fetchRecipes = createAsyncThunk('recipes/fetch', async (_, thunkAPI
 
 
 export const addRecipe = createAsyncThunk('recipes/add', async (recipe: Recipe, thunkAPI) => {
-    console.log(recipe.AutherId + recipe.description + " " + recipe.title + " " + recipe.instructions + " " + "in add ");
     try {
         const response = await axios.post('http://localhost:3000/api/recipes', recipe, { headers: { "user-id": recipe.AutherId } });
         return response.data as Recipe;
@@ -34,7 +33,6 @@ const recipesSlice = createSlice({
         builder
             .addCase(fetchRecipes.fulfilled,
                 (state, action: PayloadAction<Recipe[]>) => {
-                    console.log('succses')
                     state.list = [...action.payload]
                 })
             .addCase(fetchRecipes.rejected,
@@ -44,7 +42,6 @@ const recipesSlice = createSlice({
             )
             .addCase(addRecipe.fulfilled,
                 (state, action) => {
-                    console.log("sucsses");
                     state.list = [...state.list, { ...action.payload }]
                 })
             .addCase(addRecipe.rejected,

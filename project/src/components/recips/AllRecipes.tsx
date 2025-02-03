@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import Recipe from "../../type/Recipe";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,24 +18,35 @@ const AllRecipes = () => {
 
     return (
         <>
-            <Box sx={{ display: 'flex', height: '100vh', margin: "7%", backgroundColor:"white", opacity: 0.9 }}>
-
+            <Box sx={{ display: 'flex', height: '100vh', margin: "7%", backgroundColor: "white", opacity: 0.9 }}>
+                
                 <Box width={'100%'}>
-                    <ReciepeDisplay/>
+                    <ReciepeDisplay />
                 </Box>
 
-                <Box sx={{ width: '15%', padding: 2, borderLeft: '1px solid #ccc' }}>
+                <Box sx={{ width: '15%', padding: 2, borderLeft: '1px solid #ccc', position: 'relative', right: 0 }}>
                     <Typography variant="h6">My Recipes List:</Typography>
                     {recipesList.map(recipe => (
-                        <Link key={recipe.id} to={`/all/${recipe.id}`}>
-                            <hr />
+                        <Link 
+                            key={recipe.id} 
+                            to={`/all/${recipe.id}`} 
+                            
+                            style={{ 
+                                backgroundColor: '#607d8b', 
+                                color: 'white', 
+                                display: 'block', 
+                                padding: '8px', 
+                                textDecoration: 'none', 
+                                borderRadius: '4px', 
+                                margin: '4px 0' 
+                            }}
+                        >
                             {recipe.title}
                         </Link>
                     ))}
                 </Box>
 
             </Box>
-
         </>
     );
 };

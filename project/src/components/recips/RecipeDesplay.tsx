@@ -16,7 +16,7 @@ const ReciepeDisplay = () => {
     return (
         <>
          
-            <Box sx={{ width: '50%', height: '100vh', display: 'flex', padding: "10%" }}>
+            <Box sx={{ width: '70%', height: '100vh', display: 'flex', padding: "10%" }}>
                 <Box sx={{ flex: 3, backgroundColor: '#f0f0f0', padding: 2 }}>
                     {currentRecipe && (
                         <Paper elevation={3} sx={{ padding: 2, margin: 2 }}>
@@ -45,8 +45,6 @@ const ReciepeDisplay = () => {
                 </Box>
                 
             </Box>
-
-            {/* </Box> */}
         </>
     )
 }

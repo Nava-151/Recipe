@@ -29,8 +29,8 @@ export const listRecipe = {
 
 export const linkStyle = {
 
-    color: "#fff",
-    backgroundColor: "#3498db",
+    color: "white",
+    backgroundColor: "#607d8b",
     padding: "10px 20px",
     margin: "30px 15px",
     borderRadius: "5px",
@@ -43,7 +43,7 @@ export const linkStyle = {
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     transition: "background-color 0.2s ease-in-out",
     "&:hover": {
-        backgroundColor: "#2ecc71",
+        backgroundColor: "#455a64",
     },
 }
 export const headerStyle = {
@@ -66,3 +66,4 @@ export const backgroundStyle = {
     backgroundPosition: 'center',
     overflow: 'hidden',
 }
+export const colorStyle = { backgroundColor: '#607d8b', color: 'white', '&:hover': { backgroundColor: '#455a64' } }

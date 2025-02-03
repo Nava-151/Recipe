@@ -22,8 +22,8 @@ export default () => {
           <Link to="/all" style={linkStyle}> see all  </Link>
           {user[0].email && user[0].password && <Link to="/add" style={linkStyle} >  add </Link>}
           <NavLink to='/rer' />
-
         </nav>
+        
       </Box>
 
     </>

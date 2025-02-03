@@ -1,5 +1,6 @@
-import { TextField } from '@mui/material';
-import { FC, useState,KeyboardEvent } from 'react';
+import { TextField, IconButton } from '@mui/material';
+import { FC, useState, KeyboardEvent } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete'; // Import the trash icon
 
 const IngredientInput: FC<{ onIngredientsChange: (ingredients: string[]) => void }> = ({ onIngredientsChange }) => {
     const [ingredients, setIngredients] = useState<string[]>(['']);
@@ -15,8 +16,8 @@ const IngredientInput: FC<{ onIngredientsChange: (ingredients: string[]) => void
         if (event.key === 'Enter') {
             event.preventDefault();
             if (ingredients[index].trim() !== '') {
-                setIngredients([...ingredients, ''])
-                onIngredientsChange([...ingredients, ''])
+                setIngredients([...ingredients, '']);
+                onIngredientsChange([...ingredients, '']);
             }
         }
     };
@@ -30,7 +31,7 @@ const IngredientInput: FC<{ onIngredientsChange: (ingredients: string[]) => void
     return (
         <div>
             {ingredients.map((ingredient, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
                     <TextField
                         name="ingredient"
                         label="Ingredient"
@@ -38,10 +39,17 @@ const IngredientInput: FC<{ onIngredientsChange: (ingredients: string[]) => void
                         margin="normal"
                         value={ingredient}
                         onChange={(e) => handleInputChange(index, e.target.value)}
-                        onKeyDown={(e:KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
+                        onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)}
                         placeholder="ingredient"
+                        fullWidth 
                     />
-                    <button onClick={() => handleRemoveIngredient(index)}>✖</button>
+                    <IconButton 
+                        onClick={() => handleRemoveIngredient(index)} 
+                        color="secondary" 
+                        aria-label="remove ingredient"
+                    >
+                        <DeleteIcon />
+                    </IconButton>
                 </div>
             ))}
         </div>
