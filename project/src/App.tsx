@@ -20,11 +20,11 @@ function App() {
     <>
       <Box sx={backgroundStyle}>
 
-        <UserContext.Provider value={[user, userDispatch]}>
+        <UserContext value={[user, userDispatch]}>
           <Provider store={store}>
             <RouterProvider router={router} />
           </Provider>
-        </UserContext.Provider>
+        </UserContext>
         
       </Box>
     </>
